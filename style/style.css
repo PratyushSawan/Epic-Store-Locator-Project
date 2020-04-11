@@ -67,3 +67,11 @@ body {
     left: 100px;
     border-radius: 30px;
 }
+.store-list .store-adress{
+    font-size: 25px;
+    height: 94px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 40px;
+    line-height: 40px;
+}
