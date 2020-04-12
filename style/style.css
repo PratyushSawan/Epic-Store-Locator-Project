@@ -67,11 +67,30 @@ body {
     left: 100px;
     border-radius: 30px;
 }
+
+.store-list{
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 40px;
+    border-radius: 30px;
+}
 .store-list .store-adress{
     font-size: 25px;
     height: 94px;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-right: 40px;
     line-height: 40px;
+}
+
+.store-list .store-phone-number{
+    font-size: 20px;
+
+}
+
+.store-phone-number i{
+    padding-right: 5px;
+}
+
+.sotres-list-container .hr{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
 }
