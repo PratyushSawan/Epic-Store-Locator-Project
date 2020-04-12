@@ -20,7 +20,7 @@
 
 - Show all the stores in the stores list based on real world Data   DONE
 
-- Show the marker based on reald world Store Data
+- Show the marker based on reald world Store Data   DONE
 
 - Show the info window when you click on the indivudial store
 
