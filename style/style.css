@@ -82,15 +82,18 @@ body {
 
 .store-list .store-phone-number{
     font-size: 20px;
-
-}
-
-.store-phone-number i{
     padding-right: 5px;
+    padding-bottom: 20px
 }
 
 .sotres-list-container .hr{
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 10px;
+}
+
+.sotres-list-container .store-list:hover{
+    box-shadow: 0px 0px 10px;
+    background-color:#454E53;
+    color: white;
 }
