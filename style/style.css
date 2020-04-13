@@ -94,10 +94,12 @@ body {
     padding-top: 10px;
 }
 
- sotres-list-container store-list:hover{
+ .store-container:hover{
     box-shadow: 0px 0px 10px;
-    background-color:#454E53;
+    background-color:rgba(69, 78, 83, 0.864);
     color: white;
+    border-radius: 30px;
+    padding: 10px;
 }
 
 .store-number{
@@ -116,7 +118,46 @@ body {
 .store-container{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .store-add-info{
     flex-grow: 1;
+}
+
+.store-info-window{
+    min-width: 300px;
+    font-size: 18px;
+    padding: 8px;
+}
+.store-info-name{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(0,0,0,.87);
+}
+.store-info-status{
+    margin-top: 5px;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+    font-size: 15px;
+}
+.store-info-address,.store-info-phone{
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.circle{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #1985A1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.search i{
+    cursor: pointer;
 }

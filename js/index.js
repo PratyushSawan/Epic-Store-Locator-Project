@@ -1,6 +1,6 @@
 
 window.onload = function () {
-    displayStores();
+
 }
 //varible Declaration
 
@@ -17,20 +17,57 @@ function initMap() {
         mapTypeId: 'roadmap',
     });
     //calling infowindow function
-     //infoWindow = new google.maps.infoWindow(); 
+     infoWindow = new google.maps.InfoWindow(); 
 
-    //calling marker function
-    infoWindow = new google.maps.InfoWindow();
-    showStoreMarkers();
+     searchStores();
 
-    
 
 }
 
+function searchStores(){
+    var foundStores = [];
+    var zipCode = document.getElementById('zip-code-input').value;
+    if(zipCode){
+    for(var store of stores){
+        var postal = store['address']['postalCode'].substring(0, 5);
+        if(postal == zipCode){
+            foundStores.push(store);
+        }
+    }
+   }
+   else{
+       foundStores = stores;
+   }
+   clearLocations();
+    displayStores(foundStores);
+    showStoreMarkers(foundStores);
+    setOnClickListener();
+}
 
+function clearLocations() {
+    infoWindow.close();
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
+    markers.length = 0;
+
+  }
+
+
+//Function for list click
+function setOnClickListener(){
+    var storeElements = document.querySelectorAll('.store-container');
+    
+     storeElements.forEach(function(elem, index){
+         elem.addEventListener('click', function(){
+             new google.maps.event.trigger(markers[index], 'click');
+         })
+     })
+    
+}
 //Function for showing store data
 
-function displayStores() {
+function displayStores(stores) {
     var storesHtml = '';
 
     for (var [index, store] of stores.entries()) {
@@ -60,7 +97,7 @@ function displayStores() {
     }
 }
 //Function for Store marker on the map
-function showStoreMarkers(){
+function showStoreMarkers(stores){
     var bounds = new google.maps.LatLngBounds();
     for (var [index, store] of stores.entries()){
         var latlng = new google.maps.LatLng(
@@ -69,15 +106,36 @@ function showStoreMarkers(){
 
         var name = store["name"];
         var address = store["addressLines"] [0];
+        var openStatusText= store["openStatusText"];
+        var phoneNumber = store["phoneNumber"];
         bounds.extend(latlng);
-        createMarker(latlng, name, address, index+1);
+        createMarker(latlng, name, address, openStatusText, phoneNumber, index+1);
 
     }
     map.fitBounds(bounds);
 }
 //Marker function declaration
-function createMarker(latlng, name, address, index){
-    var html = "<br>" + name + "<br> <br>" + address;
+function createMarker(latlng, name, address, openStatusText, phoneNumber, index){
+    var html = `
+             <div class="store-info-window">
+                <div class="store-info-name">${name}</div>
+                <div class="store-info-status">${openStatusText}</div>
+                <div class="store-info-address">
+                <div class="circle">
+                <i class="fas fa-location-arrow"></i>
+                </div>
+                ${address}
+                </div>
+                <div class="store-info-phone">
+                 <div class="circle">
+                  <i class="fas fa-phone-alt"></i>
+                 </div>
+                 ${phoneNumber}
+                </div>
+              </div>
+    
+            `;
+
     var marker = new google.maps.Marker({
         map: map,
         position: latlng,

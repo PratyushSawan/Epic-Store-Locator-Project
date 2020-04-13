@@ -22,6 +22,14 @@
 
 - Show the marker based on reald world Store Data   DONE
 
-- Show the info window when you click on the indivudial store
+- Show the info window when you click on the indivudial store  DONE
+ 
+# plan of Action Day-3
 
-- Add 
+- COmplete the styling fot the marker info window  DONE
+
+- Open the info windoW marker on store in stores list  DONE
+
+- Allow a usear to search for the store in a zip coad    DONE
+
+-
